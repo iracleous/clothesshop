@@ -19,9 +19,9 @@ public interface CustomerService {
     
     boolean placeOrder(int customerId, int productId, int orderId);
     
-    List<Product> searchProduct(String productName);
+    Product[] searchProduct(String productName);
     
     Order showOrderint (int orderId);
     
-    
+    void printCustomers();
 }

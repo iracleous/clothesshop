@@ -57,7 +57,19 @@ public class Product extends PersistentClass{
         this.stock = stock;
     }
 
-    
+    public Product(int id, String name, double price, String positionInShelf, ProductCategory productCategory, int stock) {
+       
+        setId(id);
+        this.name = name;
+        this.price = price;
+        this.positionInShelf = positionInShelf;
+        this.productCategory = productCategory;
+        this.stock = stock;
+    }
+
+    public Product(){
+        
+    }
     
     
 }
