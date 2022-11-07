@@ -13,15 +13,16 @@ import java.util.List;
  *
  * @author iracl
  */
-public interface CustomerService {
+public interface MarketService {
     
     boolean register(Customer customer);
-  
-    boolean placeOrder(int customerId, int productId, int orderId);
+    
+    boolean addProduct(Product product);
     
     List<Product>  searchProduct(String productName);
-    
-    Order showOrderint (int orderId);
+    boolean placeOrder(int customerId, int productId, int orderId);
+    Order showOrderint (int orderId);   
+
     
     void printCustomers();
 }

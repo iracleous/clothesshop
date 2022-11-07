@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author iracl
  */
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements MarketService{
 
     private final CustomerRepository customerRepository ;
     private final ProductRepository productRepository ; 
@@ -26,12 +26,22 @@ public class CustomerServiceImpl implements CustomerService{
         this.productRepository = productRepository;
     }
    
-    
-    
-    
+     
     
     @Override
     public boolean register(Customer customer) {
+        
+        if (customer == null){
+            return false;
+        }
+        if (customer.getEmail() == null){
+            return false;
+        }
+        
+        if (customer.getEmail().contains("gmail")  ){
+            return false;
+        }
+        
         customerRepository.create(customer);
         return true;
     }
@@ -56,9 +66,15 @@ public class CustomerServiceImpl implements CustomerService{
        List<Customer>   customers= customerRepository.read();
        
        for (Customer customer:customers){
-           System.out.println(customer);
+           System.out.println(customer.getId() + "  " + customer.getName());
        }
-           
+    }
+
+    @Override
+    public boolean addProduct(Product product) {
+        
+       productRepository.create(product);
+        return true;
     }
     
 }
