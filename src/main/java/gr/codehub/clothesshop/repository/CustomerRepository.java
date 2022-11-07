@@ -5,26 +5,18 @@
 package gr.codehub.clothesshop.repository;
 
 import gr.codehub.clothesshop.model.Customer;
+import java.util.List;
 
 /**
  *
  * @author iracl
  */
-public class CustomerRepository {
-    private Customer[] customers = new Customer[20];
-    private int position = 0;
-    //CRUD should be implemented
+public interface CustomerRepository {
+    //CRUD
+    int create(Customer customer);
+    Customer read(int customerId);
+    List<Customer> read();
+    void update(int customerId, String email);
+    boolean delete(int customerId);
     
-    public void insertCustomer(Customer customer){
-        if (position<20){
-        customers[position++] = customer ;
-        }
-    }
-    
-    public void printCustomers(){
-        for (int i=0;i<position; i++){
-            System.out.println(customers[i].getName() + " "+ customers[i].getEmail());
-        }
-           
-    }
 }

@@ -8,7 +8,7 @@ package gr.codehub.clothesshop.model;
  *
  * @author iracl
  */
-public class Person  extends PersistentClass{
+public abstract class Person  extends PersistentClass{
 	private String name;
         private String address;
         private String email;

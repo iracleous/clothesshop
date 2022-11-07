@@ -7,7 +7,7 @@ package gr.codehub.clothesshop.services;
 import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
-import gr.codehub.clothesshop.repository.CustomerRepository;
+import gr.codehub.clothesshop.repository.CustomerRepositoryImpl;
 import gr.codehub.clothesshop.repository.ProductRepository;
 import java.util.List;
 
@@ -17,12 +17,12 @@ import java.util.List;
  */
 public class CustomerServiceImpl implements CustomerService{
 
-    private CustomerRepository customerRepository = new CustomerRepository();
+    private CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
     private ProductRepository productRepository = new ProductRepository(); 
     
     @Override
     public boolean register(Customer customer) {
-        customerRepository.insertCustomer(customer);
+        customerRepository.create(customer);
         return true;
     }
 
@@ -43,7 +43,12 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public void printCustomers() {
-        customerRepository.printCustomers();
+       Customer [] customers= customerRepository.read();
+       
+       for (Customer customer:customers){
+           System.out.println(customer);
+       }
+           
     }
     
 }
