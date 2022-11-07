@@ -17,5 +17,5 @@ import java.util.List;
 public interface  ProductRepository extends Repository<Product>{
    
     void update(int productId, double price);
-   
+    List<Product> read(String productName);
 }

@@ -53,7 +53,7 @@ public class CustomerServiceImpl implements MarketService{
 
     @Override
     public  List<Product>  searchProduct(String productName) {
-            return productRepository.read();
+            return productRepository.read(productName);
     }
 
     @Override

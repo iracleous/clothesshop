@@ -15,4 +15,6 @@ public interface CustomerRepository extends Repository<Customer>{
      
     void update(int customerId, String email);
     
+   void updateAll (int customerId,  Customer newData); 
+    
 }

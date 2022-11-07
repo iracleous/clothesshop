@@ -15,6 +15,7 @@ import gr.codehub.clothesshop.repository.impl.ProductRepositoryImpl;
 import gr.codehub.clothesshop.services.CustomerServiceImpl;
 import java.util.List;
 import gr.codehub.clothesshop.services.MarketService;
+import gr.codehub.clothesshop.util.DataImport;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,55 +26,21 @@ import java.util.Set;
 public class Clothesshop {
 
     public static void main(String[] args) {
-   
-        
-        
+         
         CustomerRepository custRepo = new CustomerRepositoryImpl();
         ProductRepository prodRepo = new ProductRepositoryImpl();
         
         MarketService customerService = new CustomerServiceImpl(custRepo,prodRepo);
+        DataImport dataImport = new DataImport(custRepo,prodRepo);
+     
+        dataImport.insertCustomers();
+        dataImport.insertProducts();
         
-        { Customer customer = new Customer();
-        customer.setName("Sokratis");
-        customer.setId(1);
-        customer.setEmail("sokratis@mail.gr"); 
-        customerService.register(customer);}
-        
-         { Customer customer = new Customer();
-        customer.setName("Sokratis");
-        customer.setId(1);
-        customer.setEmail("sokratis@mail.gr"); 
-        customerService.register(customer);}
-         
-        { Customer customer = new Customer();
-        customer.setName("Sokratis");
-        customer.setId(1);
-        customer.setEmail("sokratis@mail.gr"); 
-        customerService.register(customer);}
-        
-         { Customer customer = new Customer();
-        customer.setName("Sokratis");
-        customer.setId(1);
-        customer.setEmail("sokratis@mail.gr"); 
-        customerService.register(customer);}
-        
-      
-         
          
         customerService.printCustomers();
         
         System.out.println("-----------------------------");
-        
-        Product product = new Product();
-        product.setName("dress");
-        product.setPrice(1200);
-        product.setProductCategory(ProductCategory.WOMEN);
-        product.setPositionInShelf("A1");
-        
-        customerService.addProduct(product);
-        
-        
-        
+          
         List<Product>  products = customerService.searchProduct("dress");
           
         for (Product productA:products){

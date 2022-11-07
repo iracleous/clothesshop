@@ -25,5 +25,14 @@ public class ProductRepositoryImpl extends RepositoryImpl<Product>  implements P
         }
     }
 
- 
+    @Override
+    public List<Product> read(String productName) {
+         List<Product> returnProducts =  new ArrayList<>();
+          for (Product product:read()){
+            if (product.getName()!=null && product.getName().contains(productName) )
+                returnProducts.add(product) ;
+        }
+            return returnProducts;    
+    }
+
 }

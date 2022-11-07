@@ -15,7 +15,7 @@ import java.util.List;
  * @author iracl
  * @param <T>
  */
-public class RepositoryImpl<T extends PersistentClass>  implements Repository<T> {
+public abstract class RepositoryImpl<T extends PersistentClass>  implements Repository<T> {
 
     private final List<T> list ;
     private int index; 
