@@ -14,13 +14,8 @@ import java.util.List;
  *
  * @author iracl
  */
-public interface  ProductRepository {
-      //CRUD
-    int create(Product product);
-    Product read(int productId);
-    List<Product> read();
+public interface  ProductRepository extends Repository<Product>{
+   
     void update(int productId, double price);
-    boolean delete(int productId);
-    
-    
+   
 }

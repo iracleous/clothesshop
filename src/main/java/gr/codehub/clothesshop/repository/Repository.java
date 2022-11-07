@@ -4,15 +4,22 @@
  */
 package gr.codehub.clothesshop.repository;
 
-import gr.codehub.clothesshop.model.Customer;
+ 
+import gr.codehub.clothesshop.model.PersistentClass;
 import java.util.List;
 
 /**
  *
  * @author iracl
+ * @param <T>
  */
-public interface CustomerRepository extends Repository<Customer>{
-     
-    void update(int customerId, String email);
+public interface Repository<T extends PersistentClass> {
     
+    //CRUD
+    int create(T t);
+    T read(int id);
+    List<T> read();
+  
+    boolean delete(int id);
+
 }

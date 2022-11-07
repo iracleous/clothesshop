@@ -13,37 +13,9 @@ import java.util.List;
  *
  * @author iracl
  */
-public class CustomerRepositoryImpl implements CustomerRepository {
-  private final List<Customer> customers;
-  private int index;  
-
-    public CustomerRepositoryImpl() {
-        this.customers = new ArrayList<>();
-    }
-    
-     
-    @Override
-    public int create(Customer customer) {
-            customer.setId(index++);
-            customers.add(customer);
-            return customer.getId();
-    }
-
-    @Override
-    public Customer read(int customerId) {
-        for (Customer customer:customers){
-            if (customer.getId() == customerId)
-                return customer;
-        }
-            return null;
-    }
-
-    @Override
-    public List<Customer> read() {
-            return customers;
-    
-    }
-
+public class CustomerRepositoryImpl extends RepositoryImpl<Customer>
+       implements CustomerRepository {
+       
     @Override
     public void update(int customerId, String email) {
         Customer customer =  read(customerId);
@@ -51,15 +23,5 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             customer.setEmail(email);
         }
     }
-
-    @Override
-    public boolean delete(int customerId) {
-         Customer customer =  read(customerId);
-        if(customer !=null){
-            customers.remove(customer);
-            return true;
-        }
-        return false;
-        
-     }
+     
 }
