@@ -16,10 +16,10 @@ import java.util.List;
 public interface CustomerService {
     
     boolean register(Customer customer);
-    
+  
     boolean placeOrder(int customerId, int productId, int orderId);
     
-    Product[] searchProduct(String productName);
+    List<Product>  searchProduct(String productName);
     
     Order showOrderint (int orderId);
     

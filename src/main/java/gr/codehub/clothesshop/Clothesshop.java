@@ -7,8 +7,13 @@ package gr.codehub.clothesshop;
 
 import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Product;
+import gr.codehub.clothesshop.repository.CustomerRepository;
+import gr.codehub.clothesshop.repository.ProductRepository;
+import gr.codehub.clothesshop.repository.impl.CustomerRepositoryImpl;
+import gr.codehub.clothesshop.repository.impl.ProductRepositoryImpl;
 import gr.codehub.clothesshop.services.CustomerService;
 import gr.codehub.clothesshop.services.CustomerServiceImpl;
+import java.util.List;
 
 /**
  *
@@ -22,7 +27,11 @@ public class Clothesshop {
         customer.setId(1);
         customer.setEmail("sokratis@mail.gr");
         
-        CustomerService customerService = new CustomerServiceImpl();
+        
+        CustomerRepository custRepo = new CustomerRepositoryImpl();
+        ProductRepository prodRepo = new ProductRepositoryImpl();
+        
+        CustomerService customerService = new CustomerServiceImpl(custRepo,prodRepo);
         customerService.register(customer);
         customerService.register(customer);
         customerService.register(customer);
@@ -31,7 +40,7 @@ public class Clothesshop {
         
         customerService.printCustomers();
         System.out.println("-----------------------------");
-        Product[] products = customerService.searchProduct("dress");
+        List<Product>  products = customerService.searchProduct("dress");
         
         for (Product product:products){
        if (product!=null)     System.out.println(product.getId()+ " "+ product.getName());

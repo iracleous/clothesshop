@@ -7,7 +7,8 @@ package gr.codehub.clothesshop.services;
 import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
-import gr.codehub.clothesshop.repository.CustomerRepositoryImpl;
+import gr.codehub.clothesshop.repository.CustomerRepository;
+import gr.codehub.clothesshop.repository.impl.CustomerRepositoryImpl;
 import gr.codehub.clothesshop.repository.ProductRepository;
 import java.util.List;
 
@@ -17,8 +18,17 @@ import java.util.List;
  */
 public class CustomerServiceImpl implements CustomerService{
 
-    private CustomerRepositoryImpl customerRepository = new CustomerRepositoryImpl();
-    private ProductRepository productRepository = new ProductRepository(); 
+    private final CustomerRepository customerRepository ;
+    private final ProductRepository productRepository ; 
+
+    public CustomerServiceImpl(CustomerRepository customerRepository, ProductRepository productRepository) {
+        this.customerRepository = customerRepository;
+        this.productRepository = productRepository;
+    }
+   
+    
+    
+    
     
     @Override
     public boolean register(Customer customer) {
@@ -32,8 +42,8 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public  Product[] searchProduct(String productName) {
-            return productRepository.search(productName);
+    public  List<Product>  searchProduct(String productName) {
+            return productRepository.read();
     }
 
     @Override
@@ -43,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     @Override
     public void printCustomers() {
-       Customer [] customers= customerRepository.read();
+       List<Customer>   customers= customerRepository.read();
        
        for (Customer customer:customers){
            System.out.println(customer);
