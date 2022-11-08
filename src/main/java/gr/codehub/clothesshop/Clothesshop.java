@@ -43,13 +43,19 @@ public class Clothesshop {
             System.out.println("Customer exception " + e.getMessage());
         }
        
-       /**/ 
+        int pageCount = 3;
+        int pageSize = 5;
+        
+        List<Customer> customers = customerService.findCustomers(pageCount,pageSize);
+       
+       
+        System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(customers));    
 
         System.out.println("-----------------------------");
 
         List<Product> products = customerService.searchProduct("");
      //      System.out.println(new Gson().toJson(products));  
        
-      System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(products));    
+   //   System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(products));    
     }
 }

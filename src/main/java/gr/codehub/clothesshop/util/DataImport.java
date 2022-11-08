@@ -22,9 +22,30 @@ public class DataImport {
     private final ProductRepository productRepository;
     
     private final static String[] CUSTOMERS = {
-        "1, Dimitris, dimitris@gmail.com, kk, 2022-10-01, RETAIL",
-        "2, Nick, nick@gmail.com, 100.0, 2022-10-01, RETAIL",
-        "3, George, george@gmail.com, 100.0, 2022-10-01, RETAIL"
+        "1, Dimitris1, dimitris@gmail.com, 101.0, 2022-10-01, RETAIL",
+        "2, Nick2, nick@gmail.com, 100.0, 2022-10-01, BUSINESS",
+        "3, George3, george@gmail.com, 100.0, 2022-10-01, RETAIL",
+          "4, Dimitris4, dimitris@gmail.com, 101.0, 2022-10-01, INTERNET",
+        "5, Nick5, nick@gmail.com, 100.0, 2022-10-01, BUSINESS",
+        
+        "6, George6, george@gmail.com, 100.0, 2022-10-01, RETAIL",
+          "7, Dimitris7, dimitris@gmail.com, 101.0, 2022-10-01, RETAIL",
+        "8, Nick8, nick@gmail.com, 100.0, 2022-10-01, RETAIL",
+        "9, George9, george@gmail.com, 100.0, 2022-10-01, BUSINESS",
+          "10, Dimitris10, dimitris@gmail.com, 101.0, 2022-10-01, INTERNET",
+          
+         "11, Dimitris11, dimitris@gmail.com, 101.0, 2022-10-01, RETAIL",
+        "12, Nick12, nick@gmail.com, 100.0, 2022-10-01, BUSINESS",
+        "13, George13, george@gmail.com, 100.0, 2022-10-01, RETAIL",
+          "14, Dimitris 14, dimitris@gmail.com, 101.0, 2022-10-01, RETAIL",
+        "15, Nick 15, nick@gmail.com, 100.0, 2022-10-01, RETAIL",
+        
+        
+        "16, George 16, george@gmail.com, 100.0, 2022-10-01, INTERNET",
+          "17, Dimitris17, dimitris@gmail.com, 101.0, 2022-10-01, BUSINESS",
+        "18, Nick18, nick@gmail.com, 100.0, 2022-10-01, BUSINESS",
+        "19, George19, george@gmail.com, 100.0, 2022-10-01, RETAIL",
+          "20, Dimitris20, dimitris@gmail.com, 101.0, 2022-10-01, RETAIL",
     };
     
     private final static String[] PRODUCTS = {

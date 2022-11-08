@@ -4,6 +4,7 @@
  */
 package gr.codehub.clothesshop.services;
 
+import gr.codehub.clothesshop.dtos.StatisticalDtoBalalances;
 import gr.codehub.clothesshop.exceptions.CustomerException;
 import gr.codehub.clothesshop.exceptions.CustomerExceptionCodes;
 import gr.codehub.clothesshop.model.Customer;
@@ -11,6 +12,7 @@ import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.CustomerRepository;
 import gr.codehub.clothesshop.repository.ProductRepository;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -61,18 +63,39 @@ public class CustomerServiceImpl implements MarketService {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /**
+     * Implementation of paging
+     * @param pageCount  which page of data to return
+     * @param pageSize   number of items per page
+     * @return list of items within the requested page
+     */
     @Override
-    public void printCustomers() {
+    public List<Customer> findCustomers(int pageCount, int pageSize){
         List<Customer> customers = customerRepository.read();
-        for (Customer customer : customers) {
-            System.out.println(customer.getId() + "  " + customer.getName() + " " + customer.getRegistrationDate());
+        List<Customer> returnCustomers = new ArrayList<>();
+        int counter = -1;
+        for (Customer customer : customers) { 
+            counter++;
+           if (counter> (pageCount-1)*pageSize-1 && counter <  (pageCount)*pageSize)
+               returnCustomers.add(customer);
         }
+        return returnCustomers;
     }
 
     @Override
     public void addProduct(Product product) {
         productRepository.create(product);
         return;
+    }
+
+    @Override
+    public List<StatisticalDtoBalalances> calculateTotalBalancesPerCategory() {
+       List<StatisticalDtoBalalances> statisticsList = new ArrayList<>();
+        
+       
+       
+       
+       return statisticsList;
     }
 
 }
