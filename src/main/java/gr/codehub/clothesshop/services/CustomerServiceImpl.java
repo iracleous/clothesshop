@@ -4,6 +4,8 @@
  */
 package gr.codehub.clothesshop.services;
 
+import gr.codehub.clothesshop.exceptions.CustomerException;
+import gr.codehub.clothesshop.exceptions.CustomerExceptionCodes;
 import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
@@ -15,34 +17,33 @@ import java.util.List;
  *
  * @author iracl
  */
-public class CustomerServiceImpl implements MarketService{
+public class CustomerServiceImpl implements MarketService {
 
-    private final CustomerRepository customerRepository ;
-    private final ProductRepository productRepository ; 
+    private final CustomerRepository customerRepository;
+    private final ProductRepository productRepository;
 
     public CustomerServiceImpl(CustomerRepository customerRepository, ProductRepository productRepository) {
         this.customerRepository = customerRepository;
         this.productRepository = productRepository;
     }
-   
-     
-    
+
+    /**
+     *
+     * @param customer
+     * @throws CustomerException
+     */
     @Override
-    public boolean register(Customer customer) {
-        
-        if (customer == null){
-            return false;
+    public void register(Customer customer) throws CustomerException {
+        if (customer == null) {
+            throw new CustomerException(CustomerExceptionCodes.CUSTOMER_IS_NULL);
         }
-        if (customer.getEmail() == null){
-            return false;
+        if (customer.getEmail() == null) {
+            throw new CustomerException(CustomerExceptionCodes.CUSTOMER_MISSING_DATA);
         }
-        
-        if (customer.getEmail().contains("gmail")  ){
-            return false;
+        if (customer.getEmail().contains("gmail")) {
+            throw new CustomerException(CustomerExceptionCodes.CUSTOMER_INVALID_DATA);
         }
-        
         customerRepository.create(customer);
-        return true;
     }
 
     @Override
@@ -51,8 +52,8 @@ public class CustomerServiceImpl implements MarketService{
     }
 
     @Override
-    public  List<Product>  searchProduct(String productName) {
-            return productRepository.read(productName);
+    public List<Product> searchProduct(String productName) {
+        return productRepository.read(productName);
     }
 
     @Override
@@ -62,18 +63,16 @@ public class CustomerServiceImpl implements MarketService{
 
     @Override
     public void printCustomers() {
-       List<Customer>   customers= customerRepository.read();
-       
-       for (Customer customer:customers){
-           System.out.println(customer.getId() + "  " + customer.getName() + " " + customer.getRegistrationDate());
-       }
+        List<Customer> customers = customerRepository.read();
+        for (Customer customer : customers) {
+            System.out.println(customer.getId() + "  " + customer.getName() + " " + customer.getRegistrationDate());
+        }
     }
 
     @Override
-    public boolean addProduct(Product product) {
-        
-       productRepository.create(product);
-        return true;
+    public void addProduct(Product product) {
+        productRepository.create(product);
+        return;
     }
-    
+
 }

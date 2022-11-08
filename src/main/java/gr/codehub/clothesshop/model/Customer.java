@@ -8,7 +8,7 @@ import gr.codehub.clothesshop.enums.CustomerCategory;
 import java.util.Date;
 
 /**
- *
+ * This class models the customer. It has been created after the requirements A123/ 2022-07-04
  * @author iracl
  */
 public class Customer extends Person{

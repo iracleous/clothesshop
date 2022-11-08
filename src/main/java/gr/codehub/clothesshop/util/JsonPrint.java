@@ -4,6 +4,9 @@
  */
 package gr.codehub.clothesshop.util;
 
+import com.google.gson.Gson;
+import gr.codehub.clothesshop.model.Customer;
+
 /**
  *
  * @author iracl
@@ -14,13 +17,13 @@ package gr.codehub.clothesshop.util;
  
 public class JsonPrint {
    public static void main(String args[])  {
-//      String json = "{" +
-//                    "Name : Jai," +
-//                    "Age : 25, " +
-//                    "Salary: 25000.00 " +
-//                    "}";
-//      JSONObject jsonObj = new JSONObject(json);
-//      System.out.println("Pretty Print of JSON:");
-//      System.out.println(jsonObj.toString(4)); // pretty print json
+ 
+       Customer customer = new Customer();
+       customer.setName("Dimitris");
+       
+       
+        System.out.println(new Gson().toJson(customer));    
+       
+       
    }
 }

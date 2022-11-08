@@ -4,6 +4,10 @@
  */
 package gr.codehub.clothesshop;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import gr.codehub.clothesshop.exceptions.CustomerException;
+import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.CustomerRepository;
 import gr.codehub.clothesshop.repository.ProductRepository;
@@ -31,16 +35,21 @@ public class Clothesshop {
         dataImport.insertCustomers();
         dataImport.insertProducts();
 
-        customerService.printCustomers();
+        try{
+            Customer customer = new Customer();
+            customerService.register(customer);
+        }
+        catch(CustomerException e){
+            System.out.println("Customer exception " + e.getMessage());
+        }
+       
+       /**/ 
 
         System.out.println("-----------------------------");
 
-        List<Product> products = customerService.searchProduct("dress");
-
-        for (Product productA : products) {
-            if (productA != null) {
-                System.out.println(productA.getId() + " " + productA.getName());
-            }
-        }
+        List<Product> products = customerService.searchProduct("");
+     //      System.out.println(new Gson().toJson(products));  
+       
+      System.out.println(new GsonBuilder().setPrettyPrinting().create().toJson(products));    
     }
 }
