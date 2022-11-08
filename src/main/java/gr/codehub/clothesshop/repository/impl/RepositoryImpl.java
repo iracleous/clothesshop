@@ -5,7 +5,6 @@
 package gr.codehub.clothesshop.repository.impl;
 
 import gr.codehub.clothesshop.model.PersistentClass;
-import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.Repository;
 import java.util.ArrayList;
 import java.util.List;

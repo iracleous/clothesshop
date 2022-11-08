@@ -8,7 +8,6 @@ import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.CustomerRepository;
-import gr.codehub.clothesshop.repository.impl.CustomerRepositoryImpl;
 import gr.codehub.clothesshop.repository.ProductRepository;
 import java.util.List;
 
@@ -66,7 +65,7 @@ public class CustomerServiceImpl implements MarketService{
        List<Customer>   customers= customerRepository.read();
        
        for (Customer customer:customers){
-           System.out.println(customer.getId() + "  " + customer.getName());
+           System.out.println(customer.getId() + "  " + customer.getName() + " " + customer.getRegistrationDate());
        }
     }
 
