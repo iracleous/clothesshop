@@ -16,4 +16,5 @@ public class CustomerExceptionCodes {
     public final static String CUSTOMER_MISSING_DATA = "Not all data are given to create a customer";
     public final static String CUSTOMER_OVER_DRAFT = "The customer has exceeded the balance limit";
     public final static String CUSTOMER_OUT_OF_RANGE = "The customer's address cannot be supported";
+    public final static String CUSTOMER_FILE_NOT_FOUND = "The customer file cannot be found";
 }

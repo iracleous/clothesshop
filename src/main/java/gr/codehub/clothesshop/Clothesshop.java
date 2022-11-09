@@ -14,9 +14,13 @@ import gr.codehub.clothesshop.repository.ProductRepository;
 import gr.codehub.clothesshop.repository.impl.CustomerRepositoryImpl;
 import gr.codehub.clothesshop.repository.impl.ProductRepositoryImpl;
 import gr.codehub.clothesshop.services.CustomerServiceImpl;
+import gr.codehub.clothesshop.services.IoServices;
+import gr.codehub.clothesshop.services.IoServicesImpl;
 import java.util.List;
 import gr.codehub.clothesshop.services.MarketService;
 import gr.codehub.clothesshop.util.DataImport;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +28,7 @@ import gr.codehub.clothesshop.util.DataImport;
  */
 public class Clothesshop {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         CustomerRepository custRepo = new CustomerRepositoryImpl();
         ProductRepository prodRepo = new ProductRepositoryImpl();
@@ -32,7 +36,7 @@ public class Clothesshop {
         MarketService customerService = new CustomerServiceImpl(custRepo, prodRepo);
         DataImport dataImport = new DataImport(custRepo, prodRepo);
 
-        dataImport.insertCustomers();
+  //      dataImport.insertCustomers();
         dataImport.insertProducts();
 
         try{
@@ -43,7 +47,15 @@ public class Clothesshop {
             System.out.println("Customer exception " + e.getMessage());
         }
        
-        int pageCount = 3;
+        
+        IoServices ioservice = new IoServicesImpl(custRepo);
+        try {
+            ioservice.readCustomerFromCsv("data\\customers.csv");
+        } catch (CustomerException ex) {
+            Logger.getLogger(Clothesshop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int pageCount = 2;
         int pageSize = 5;
         
         List<Customer> customers = customerService.findCustomers(pageCount,pageSize);

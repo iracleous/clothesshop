@@ -1,0 +1,12 @@
+id,name,address,email,tel,registrationDate,balance,customerCategory
+0,John,null,dimitris@gmail.com,null,2022-10-6,101.0,RETAIL
+1,Pericles,null,nick@gmail.com,null,2022-10-6,100.0,BUSINESS
+2,Achilleas,null,george@gmail.com,null,2022-10-6,100.0,RETAIL
+3,Dimitris4,null,dimitris@gmail.com,null,2022-10-6,101.0,INTERNET
+4,Nick5,null,nick@gmail.com,null,2022-10-6,100.0,BUSINESS
+5,George6,null,george@gmail.com,null,2022-10-6,100.0,RETAIL
+6,Dimitris7,null,dimitris@gmail.com,null,2022-10-6,101.0,RETAIL
+7,Nick8,null,nick@gmail.com,null,2022-10-6,100.0,RETAIL
+8,George9,null,george@gmail.com,null,2022-10-6,100.0,BUSINESS
+9,Dimitris10,null,dimitris@gmail.com,null,2022-10-6,101.0,INTERNET
+ 
