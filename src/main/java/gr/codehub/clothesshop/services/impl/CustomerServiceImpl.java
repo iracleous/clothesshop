@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gr.codehub.clothesshop.services;
+package gr.codehub.clothesshop.services.impl;
 
 import gr.codehub.clothesshop.dtos.StatisticalDtoBalalances;
 import gr.codehub.clothesshop.exceptions.CustomerException;
@@ -12,6 +12,7 @@ import gr.codehub.clothesshop.model.Order;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.CustomerRepository;
 import gr.codehub.clothesshop.repository.ProductRepository;
+import gr.codehub.clothesshop.services.MarketService;
 import java.util.ArrayList;
 import java.util.List;
 

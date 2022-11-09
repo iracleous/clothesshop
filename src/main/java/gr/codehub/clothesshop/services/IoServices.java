@@ -10,21 +10,21 @@ import gr.codehub.clothesshop.exceptions.CustomerException;
  *
  * @author iracl
  */
-public interface  IoServices {
-    
+public interface IoServices {
+
     /**
      *
      * @param filename
      * @throws CustomerException
      */
     void saveCustomerToCsv(String filename) throws CustomerException;
-    
+
     /**
      *
      * @param filename
-     * @return returns the number of the read rows 
+     * @return returns the number of the read rows
      * @throws CustomerException
      */
     int readCustomerFromCsv(String filename) throws CustomerException;
-    
+
 }

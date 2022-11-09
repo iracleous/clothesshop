@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gr.codehub.clothesshop.services;
+package gr.codehub.clothesshop.services.impl;
 
 import gr.codehub.clothesshop.enums.CustomerCategory;
 import gr.codehub.clothesshop.exceptions.CustomerException;
 import gr.codehub.clothesshop.exceptions.CustomerExceptionCodes;
 import gr.codehub.clothesshop.model.Customer;
 import gr.codehub.clothesshop.repository.CustomerRepository;
+import gr.codehub.clothesshop.services.IoServices;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
