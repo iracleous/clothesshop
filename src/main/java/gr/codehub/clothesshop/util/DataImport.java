@@ -47,7 +47,14 @@ public class DataImport {
         "1, 180, suit, AAS, MEN, 20",
         "2, 50, shirt, ABS, MEN, 10",
         "3, 35, trousers, WAS, MEN, 20",
-        "4, 350, dress, WAS, WOMEN, 50",};
+        "4, 350, dress, WAS, WOMEN, 50",
+         "5, 180, trousers, AA1S, MEN, 20",
+        "6, 50, tie, A2BS, MEN, 10",
+        "7, 35, socks, W5AS, MEN, 20",
+        "8, 350, soocks, W1AS, WOMEN, 50",
+    
+    
+    };
 
     /**
      *
