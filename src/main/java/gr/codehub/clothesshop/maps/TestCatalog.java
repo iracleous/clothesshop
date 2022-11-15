@@ -22,7 +22,7 @@ public class TestCatalog {
         DataImport dataImport = new DataImport(null, prodRepo);
         dataImport.insertProducts();
         
-        Catalog catalog = new CatalogImpl();
+        Catalog catalog = new SetCatalogImpl();
         
         prodRepo
                 .read()
