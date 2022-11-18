@@ -4,7 +4,7 @@
  */
 package gr.codehub.clothesshop;
 
-import com.google.gson.Gson;
+
 import com.google.gson.GsonBuilder;
 import gr.codehub.clothesshop.exceptions.CustomerException;
 import gr.codehub.clothesshop.model.Customer;

@@ -8,7 +8,7 @@ import gr.codehub.clothesshop.dtos.StatisticalDtoBalalances;
 import gr.codehub.clothesshop.exceptions.ProductException;
 import gr.codehub.clothesshop.exceptions.CustomerException;
 import gr.codehub.clothesshop.model.Customer;
-import gr.codehub.clothesshop.model.Order;
+import gr.codehub.clothesshop.model.Cart;
 import gr.codehub.clothesshop.model.Product;
 import java.util.List;
 
@@ -53,7 +53,7 @@ public interface MarketService {
      * @param orderId
      * @return
      */
-    Order showOrderint (int orderId);   
+    Cart showOrderint (int orderId);   
 
     /**
      *

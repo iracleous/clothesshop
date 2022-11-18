@@ -4,6 +4,9 @@
  */
 package gr.codehub.clothesshop.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.util.Date;
 import java.util.List;
 
@@ -11,11 +14,16 @@ import java.util.List;
  *
  * @author iracl
  */
-public class Order extends PersistentClass{
-    private Customer customer;
-    private List<OrderItem> list;
+@Entity
+public class Cart extends PersistentClass{
     private Date purchaseDateTime;
     private String paymentType;
+  
+    @ManyToOne
+    private Customer customer;
+    
+    @OneToMany(mappedBy = "cart")
+    private List<OrderItem> list;
 
     public Customer getCustomer() {
         return customer;

@@ -5,11 +5,14 @@
 package gr.codehub.clothesshop.model;
 
 import gr.codehub.clothesshop.enums.ProductCategory;
+import jakarta.persistence.Entity;
 
 /**
  *
  * @author iracl
  */
+
+@Entity
 public class Product extends PersistentClass{
     private String name;
     private double price;

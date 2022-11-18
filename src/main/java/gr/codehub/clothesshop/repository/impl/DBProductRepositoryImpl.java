@@ -4,9 +4,6 @@
  */
 package gr.codehub.clothesshop.repository.impl;
 
-import static db.Db.CONNECTION_STRING;
-import static db.Db.PASSWORD;
-import static db.Db.USERNAME;
 import gr.codehub.clothesshop.enums.ProductCategory;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.ProductRepository;
@@ -17,6 +14,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import static db.Db.H2_CONNECTION_STRING;
+import static db.Db.H2_USERNAME;
+import static db.Db.H2_PASSWORD;
 
 /**
  *
@@ -40,7 +40,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
     
     @Override
     public int create(Product t) {
-        try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+        try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             String columnNames[] = new String[]{"id"};
             PreparedStatement statement = conn.prepareStatement(INSERT_STATEMENT, columnNames);
             statement.setString(1, t.getName());
@@ -63,7 +63,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product read(int productId) {
-        try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+        try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             PreparedStatement statement = conn.prepareStatement(SELECT_STATEMENT);
             statement.setInt(1, productId);
             ResultSet rs = statement.executeQuery();
@@ -87,7 +87,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> read() {
         List<Product> products = new ArrayList<>();
-        try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+        try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             PreparedStatement statement = conn.prepareStatement(SELECT_ALL_STATEMENT);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -109,7 +109,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
 
     @Override
     public boolean delete(int id) {
-        try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+        try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             PreparedStatement statement = conn.prepareStatement(DELETE_STATEMENT);
             statement.setInt(1, id);
             return statement.executeUpdate() > 0;
@@ -120,7 +120,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void update(int productId, double price) {
-         try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+         try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             PreparedStatement statement = conn.prepareStatement(UPDATE_PRICE_STATEMENT);
             statement.setDouble(1, price);
             statement.setInt(2, productId);
@@ -132,7 +132,7 @@ public class DBProductRepositoryImpl implements ProductRepository {
     @Override
     public List<Product> read(String productName) {
      List<Product> products = new ArrayList<>();
-        try ( Connection conn = DriverManager.getConnection(CONNECTION_STRING, USERNAME, PASSWORD)) {
+        try ( Connection conn = DriverManager.getConnection(H2_CONNECTION_STRING, H2_USERNAME, H2_PASSWORD)) {
             PreparedStatement statement = conn.prepareStatement(SELECT_BY_NAME_STATEMENT);
             statement.setString(1, productName );
             ResultSet rs = statement.executeQuery();

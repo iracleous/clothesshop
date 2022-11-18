@@ -4,10 +4,16 @@
  */
 package gr.codehub.clothesshop.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.MappedSuperclass;
+
 /**
  *
  * @author iracl
  */
+
+
+ @MappedSuperclass
 public abstract class Person  extends PersistentClass{
 	private String name;
         private String address;

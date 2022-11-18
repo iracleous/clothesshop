@@ -4,15 +4,25 @@
  */
 package gr.codehub.clothesshop.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+
 /**
  *
  * @author iracl
  */
+@Entity
 public class OrderItem extends PersistentClass {
+    
+      private int quantity;
+    private double discountPerUnit;  
+    
+    @ManyToOne
     private Product product;
-    private int quantity;
-    private double discountPerUnit;
-    private Order order;
+
+    
+    @ManyToOne
+    private Cart cart;
 
     public Product getProduct() {
         return product;
@@ -38,12 +48,12 @@ public class OrderItem extends PersistentClass {
         this.discountPerUnit = discountPerUnit;
     }
 
-    public Order getOrder() {
-        return order;
+    public Cart getOrder() {
+        return cart;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrder(Cart order) {
+        this.cart = order;
     }
     
     

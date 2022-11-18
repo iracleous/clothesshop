@@ -10,6 +10,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>gr.codehub.clothesshop.Clothesshop</exec.mainClass>
+          <hibernate.version>6.1.3.Final</hibernate.version>
     </properties>
     <dependencies>
         
@@ -25,7 +26,18 @@
             <version>1.3.161</version>
         </dependency>
         
- 
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+
+  <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
         
     </dependencies>
 </project>

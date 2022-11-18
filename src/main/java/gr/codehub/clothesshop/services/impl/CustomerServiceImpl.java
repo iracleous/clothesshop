@@ -8,7 +8,7 @@ import gr.codehub.clothesshop.dtos.StatisticalDtoBalalances;
 import gr.codehub.clothesshop.exceptions.CustomerException;
 import gr.codehub.clothesshop.exceptions.CustomerExceptionCodes;
 import gr.codehub.clothesshop.model.Customer;
-import gr.codehub.clothesshop.model.Order;
+import gr.codehub.clothesshop.model.Cart;
 import gr.codehub.clothesshop.model.Product;
 import gr.codehub.clothesshop.repository.CustomerRepository;
 import gr.codehub.clothesshop.repository.ProductRepository;
@@ -60,7 +60,7 @@ public class CustomerServiceImpl implements MarketService {
     }
 
     @Override
-    public Order showOrderint(int orderId) {
+    public Cart showOrderint(int orderId) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -71,6 +71,7 @@ public class CustomerServiceImpl implements MarketService {
      * @return list of items within the requested page
      */
     @Override
+    // the paging should nnot be done in memory but in database
     public List<Customer> findCustomers(int pageCount, int pageSize){
         List<Customer> customers = customerRepository.read();
         List<Customer> returnCustomers = new ArrayList<>();
