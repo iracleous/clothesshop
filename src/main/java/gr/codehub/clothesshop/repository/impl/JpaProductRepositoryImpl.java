@@ -20,12 +20,23 @@ public class JpaProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void update(int productId, double price) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Product product = entityManager.find(Product.class, productId);
+        if (product == null) {
+            return;
+        }
+        product.setPrice(price);
+        entityManager.getTransaction().begin();
+        entityManager.persist(product);
+        entityManager.getTransaction().commit();
+
     }
 
     @Override
     public List<Product> read(String productName) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        return entityManager.createQuery("from Product p Where p.Name =:name ", Product.class)
+                .setParameter("name", productName)
+                .getResultList();
     }
 
     @Override
@@ -49,8 +60,23 @@ public class JpaProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public boolean delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean delete(int productId) {
+        Product product = entityManager.find(Product.class, productId);
+        if (product == null) {
+            return false;
+        }
+
+        entityManager.getTransaction().begin();
+        entityManager.remove(product);
+        entityManager.getTransaction().commit();
+        return true;
+
     }
 
+    
+     
+  
+    
+    
+    
 }
